@@ -6,20 +6,24 @@
     --white-color: #f4f4f4;
     --background-color: #efefef;
 }
-/* for project name */
-.logoFont{
-    font-family: 'Grandstander',
+
+.logoFont {
+    font-family: 'Fascinate Inline',
     cursive;
-    color: rgb(85, 205, 85);
+    color: #f6e06e;
 }
-/* for attribution of image */
-.imageAttrib{
+
+.logoBG {
+    background-color: var(--dark-color);
+}
+
+.imageAttrib {
     color: var(--dark-color);
     opacity: 0.5;
     font-size: x-small;
 }
 
-.hamburgerIcon{
+.hamburgerIcon {
     color: var(--primary-color);
 }
 
@@ -31,11 +35,16 @@ body {
 nav {
     background-color: var(--dark-color);
 }
+
 .navbar a {
     color: var(--white-color);
 }
 
 .navbar a:hover {
+    color: var(--secondary-color);
+}
+
+.navbar a span {
     color: var(--secondary-color);
 }
 
@@ -100,7 +109,6 @@ main>.container {
     color: var(--call-color);
 }
 
-/* for prism */
 code[class*="language-"],
 pre[class*="language-"] {
     white-space: pre-wrap;

@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name*: Coding Project by Greg Layton</title>
+    <title>FizzBuzz: Coding Project by Greg Layton</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,6 +14,9 @@
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
 
     <!-- google font goes here -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/css/site.css">
 
@@ -30,7 +33,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="https://glayton.com/"><img src="/img/GL Logo Small Dark.svg"
                     alt="Greg Layton Logo" height="36" class="d-inline-block"></a>
-            <span class="logoFont ps-2 pe-4" style="font-size:40px;"> App Name*</span>
+            <span class="logoFont ps-2 pe-4" style="font-size:40px;"> FizzBuzz</span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span>
@@ -43,7 +46,7 @@
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="app.html">The App</a>
+                        <a class="nav-link active" aria-current="page" href="app.html"><span>The App</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="code.html">The Code</a>
@@ -56,48 +59,118 @@
         </div>
     </nav>
     <main class="flex-shrink-0">
-        <div class="container">
-            <!--  -->
-        </div>
-    </main>
-        <footer class="footer mt-auto py-3 sticky-footer">
-            <div class="container-fluid">
-                <div class="row row-cols-1 row-cols-lg-3 gy-2">
-                    <div class="col order-last order-lg-first">
-                        <div><span class="copyright">&copy;2022</span> Greg Layton | Greg@glayton.com</div>
-                    </div>
-                    <div class="col d-flex align-items-center justify-content-start justify-content-lg-center">
-                        <a href="https://glayton.com/">
-                            <img src="/img/GL Logo Dark.svg" alt="Greg Layton Logo" height="36">
-                        </a>
-                    </div>
-                    <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
-                        <div class="row">
-                            <div class="col social">
-                                <a href="https://www.linkedin.com/in/greg-layton-tx39191" target="_blank">
-                                    <i class="fab fa-linkedin fa-2x"></i>
-                                </a>
+        <div class="container mt-5">
+            <div class="row row-cols-1 row-cols-lg-2">
+                <div class="col border-end border-2">
+                    <h1 class="display-4 border border-4 rounded-pill text-center lh-1 logoBG"><span
+                            class="logoFont"> FizzBuzz</span></h1>
+                    <h3 class="mb-3 border-bottom border-2">A JavaScript coding challenge</h3>
+                    <h4 class="blockquote">
+                        Display numbers between 1 to 100. 
+                        For every multiple of 3 display "Fizz" instead of the number. 
+                        For every multiple of 5 display "Buzz" instead of the number.
+                        For every multiple of 15 display both, making "FizzBuzz".
+                        This app has been changed to allow custom divisors to be used.
+                    </h4>
+                    <h2 class="mt-5 border-bottom border-2">Instructions</h2>
+                    <p>Enter a "Fizz" and a "Buzz" value, or leave as default, then press the "GO!" button.</p>
+                </div>
+                <div class="col">
+                    <div>
+                        <!-- <h5>Enter Values</h5> -->
+                        <form action="" class="row gy-2 gx-3">
+                            <!-- <div class="col">
+                                <input type="number" name="startVal" id="startVal" class="form-control"
+                                    placeholder="Starting Value" value="1" aria-label="Start Value">
+                            </div> -->
+                            <div class="col">
+                                <h5>Fizz Value</h5>
+                                <input type="number" name="fizzVal" id="fizzVal" class="form-control"
+                                    placeholder="Starting Value" value="3" aria-label="Fizz Value">
                             </div>
-                            <div class="col social">
-                                <a href="https://github.com/GLayton-TX?tab=repositories" target="_blank">
-                                    <i class="fab fa-github fa-2x"></i>
-                                </a>
+                            <!-- <div class="col">
+                                <input type="number" name="endVal" id="endVal" class="form-control"
+                                    placeholder="Ending Value" value="100" aria-label="Ending Value">
+                            </div> -->
+                            <div class="col">
+                                <h5>Buzz Value</h5>
+                                <input type="number" name="buzzVal" id="buzzVal" class="form-control"
+                                    placeholder="Ending Value" value="5" aria-label="Buzz Value">
                             </div>
-                            <div class="col social">
-                                <a href="#" target="_blank">
-                                    <i class="fab fa-twitter fa-2x"></i>
-                                </a>
+                            <div id="fbValueHolder" class="invisible show">
+                                <h5>FizzBuzz Value: <span id="fizzBuzzVal"
+                                        style="color: red;"></span></h5>
                             </div>
+                            <!-- <div class="col-12 d-flex justify-content-end">
+                                <button type="button" id="submitButton" class="btn btn-dark btn-lg">GO!</button>
+                            </div> -->
+                            <div class="col-12 d-flex justify-content-end">
+                                <button type="button" id="fizzButton" class="btn btn-dark btn-lg">GO!</button>
+                                <div class="d-flex ms-2">
+                                <button type="button" id="btnClear" class="btn btn-danger">Clear Form</button>
+                                </div>
+                            </div>
+                        </form>
+                        <h2 class="mt-5 border-bottom border-2">Results</h2>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-sm">
+                                <tbody id="results">
+                                    <!-- results go here -->
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-        </footer>
-        <!-- Bootstrap JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
-        </script>
-        <script src="/js/site.js"></script>
+        </div>
+    </main>
+    <footer class="footer mt-auto py-3 sticky-footer">
+        <div class="container-fluid">
+            <div class="row row-cols-1 row-cols-lg-3 gy-2">
+                <div class="col order-last order-lg-first">
+                    <div><span class="copyright">&copy;2022</span> Greg Layton | Greg@glayton.com</div>
+                </div>
+                <div class="col d-flex align-items-center justify-content-start justify-content-lg-center">
+                    <a href="https://glayton.com/">
+                        <img src="/img/GL Logo Dark.svg" alt="Greg Layton Logo" height="36">
+                    </a>
+                </div>
+                <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
+                    <div class="row">
+                        <div class="col social">
+                            <a href="https://www.linkedin.com/in/greg-layton-tx39191" target="_blank">
+                                <i class="fab fa-linkedin fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col social">
+                            <a href="https://github.com/GLayton-TX?tab=repositories" target="_blank">
+                                <i class="fab fa-github fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col social">
+                            <a href="#" target="_blank">
+                                <i class="fab fa-twitter fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+    </script>
+    <script src="/js/site.js"></script>
+    <!-- <script>
+        document.getElementById("submitButton").addEventListener("click", getValues);
+    </script> -->
+    <script>
+        document.getElementById("fizzButton").addEventListener("click", getValues);
+    </script>
+    <script>
+        document.getElementById("btnClear").addEventListener("click", clearForm)
+    </script>
 </body>
 
 </html>
